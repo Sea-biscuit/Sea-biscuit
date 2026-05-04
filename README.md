@@ -1,5 +1,6 @@
 ## Hi there 👋
-
+Whenever and wherever you are, once you sea my repository, you should say:
+`UMAMUSUME IS OUR LIFE!`
 <!--
 **Sea-biscuit/Sea-biscuit** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
