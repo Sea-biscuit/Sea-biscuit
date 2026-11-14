@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" role="img" aria-labelledby="title">
+<title id="title">代表项目语言分布</title>
+<rect width="600" height="300" rx="20" fill="#111b2b"/>
+<circle cx="146" cy="150" r="86" fill="none" stroke="#29384e" stroke-width="24"/>
+<g font-family="system-ui, sans-serif" fill="#eaf1fa">
+<text x="280" y="156" font-size="18">等待首次统计</text>
+</g>
+</svg>
