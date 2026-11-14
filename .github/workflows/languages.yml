@@ -1,0 +1,34 @@
+name: Update language chart
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 2 * * 1'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: language-chart
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate chart
+        env:
+          PROFILE_LANGUAGES_TOKEN: ${{ secrets.PROFILE_LANGUAGES_TOKEN }}
+          PROFILE_OWNER: ${{ github.repository_owner }}
+        run: python3 scripts/update_languages.py
+      - name: Save chart
+        run: |
+          if git diff --quiet -- assets/languages.svg; then
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/languages.svg
+          git commit -m 'Update language chart'
+          git push
