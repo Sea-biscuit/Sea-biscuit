@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="360" height="328" viewBox="0 0 360 328" role="img" aria-labelledby="title">
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="136" viewBox="0 0 360 136" role="img" aria-labelledby="title">
 <title id="title">Languages by Project</title>
 <g font-family="system-ui, sans-serif" font-size="13">
-<desc>Project counts: Python: 4, C#: 3, Go: 3, JavaScript: 3, Vue: 3, C: 2, C++: 2, Batchfile: 1, CSS: 1, Dockerfile: 1, HTML: 1, Java: 1, SCSS: 1</desc>
+<desc>Project counts: Python: 4, C#: 3, Go: 3, JavaScript: 3, Vue: 3</desc>
 <text x="10" y="25" fill="#68788c">Python</text>
 <rect x="166" y="16" width="154" height="8" rx="4" fill="#8291a8" opacity=".19"/>
 <rect x="166" y="16" width="154.00" height="8" rx="4" fill="#668ad1"/>
@@ -22,37 +22,5 @@
 <rect x="166" y="112" width="154" height="8" rx="4" fill="#8291a8" opacity=".19"/>
 <rect x="166" y="112" width="115.50" height="8" rx="4" fill="#668ad1"/>
 <text x="350" y="121" text-anchor="end" fill="#68788c">3</text>
-<text x="10" y="145" fill="#68788c">C</text>
-<rect x="166" y="136" width="154" height="8" rx="4" fill="#8291a8" opacity=".19"/>
-<rect x="166" y="136" width="77.00" height="8" rx="4" fill="#668ad1"/>
-<text x="350" y="145" text-anchor="end" fill="#68788c">2</text>
-<text x="10" y="169" fill="#68788c">C++</text>
-<rect x="166" y="160" width="154" height="8" rx="4" fill="#8291a8" opacity=".19"/>
-<rect x="166" y="160" width="77.00" height="8" rx="4" fill="#668ad1"/>
-<text x="350" y="169" text-anchor="end" fill="#68788c">2</text>
-<text x="10" y="193" fill="#68788c">Batchfile</text>
-<rect x="166" y="184" width="154" height="8" rx="4" fill="#8291a8" opacity=".19"/>
-<rect x="166" y="184" width="38.50" height="8" rx="4" fill="#668ad1"/>
-<text x="350" y="193" text-anchor="end" fill="#68788c">1</text>
-<text x="10" y="217" fill="#68788c">CSS</text>
-<rect x="166" y="208" width="154" height="8" rx="4" fill="#8291a8" opacity=".19"/>
-<rect x="166" y="208" width="38.50" height="8" rx="4" fill="#668ad1"/>
-<text x="350" y="217" text-anchor="end" fill="#68788c">1</text>
-<text x="10" y="241" fill="#68788c">Dockerfile</text>
-<rect x="166" y="232" width="154" height="8" rx="4" fill="#8291a8" opacity=".19"/>
-<rect x="166" y="232" width="38.50" height="8" rx="4" fill="#668ad1"/>
-<text x="350" y="241" text-anchor="end" fill="#68788c">1</text>
-<text x="10" y="265" fill="#68788c">HTML</text>
-<rect x="166" y="256" width="154" height="8" rx="4" fill="#8291a8" opacity=".19"/>
-<rect x="166" y="256" width="38.50" height="8" rx="4" fill="#668ad1"/>
-<text x="350" y="265" text-anchor="end" fill="#68788c">1</text>
-<text x="10" y="289" fill="#68788c">Java</text>
-<rect x="166" y="280" width="154" height="8" rx="4" fill="#8291a8" opacity=".19"/>
-<rect x="166" y="280" width="38.50" height="8" rx="4" fill="#668ad1"/>
-<text x="350" y="289" text-anchor="end" fill="#68788c">1</text>
-<text x="10" y="313" fill="#68788c">SCSS</text>
-<rect x="166" y="304" width="154" height="8" rx="4" fill="#8291a8" opacity=".19"/>
-<rect x="166" y="304" width="38.50" height="8" rx="4" fill="#668ad1"/>
-<text x="350" y="313" text-anchor="end" fill="#68788c">1</text>
 </g>
 </svg>

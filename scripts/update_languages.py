@@ -56,7 +56,7 @@ def collect(token, owner):
 
 
 def render(totals, empty_message):
-    entries = sorted(totals.items(), key=lambda item: (-item[1], item[0].casefold()))
+    entries = sorted(totals.items(), key=lambda item: (-item[1], item[0].casefold()))[:5]
     height = max(56, 24 * len(entries) + 16)
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="360" height="{height}" '
