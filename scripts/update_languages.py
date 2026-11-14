@@ -11,7 +11,6 @@ from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
 OUTPUT = Path(__file__).resolve().parents[1] / "assets" / "languages.svg"
-COLORS = ("#55c4f3", "#b19cff", "#57d8a5", "#ffc66d", "#fa92b9", "#a6bece", "#748aa5")
 
 
 def github(path, token):
@@ -42,7 +41,14 @@ def collect(token, owner):
         })
         repositories = github(f"/user/repos?{query}", token)
         for repo in repositories:
-            totals.update(github(f"/repos/{repo['full_name']}/languages", token))
+            languages = github(f"/repos/{repo['full_name']}/languages", token)
+            total_bytes = sum(languages.values())
+            if total_bytes:
+                largest = max(languages.values())
+                totals.update(
+                    name for name, size in languages.items()
+                    if size == largest or size * 100 >= total_bytes
+                )
         if len(repositories) < 100:
             break
         page += 1
@@ -50,41 +56,30 @@ def collect(token, owner):
 
 
 def render(totals, empty_message):
-    ranked = sorted(totals.items(), key=lambda item: (-item[1], item[0]))
-    entries = ranked[:6]
-    if len(ranked) > 6:
-        entries.append(("其他", sum(size for _, size in ranked[6:])))
-    total = sum(totals.values())
-    width, height = 600, 300
+    entries = sorted(totals.items(), key=lambda item: (-item[1], item[0].casefold()))
+    height = max(56, 24 * len(entries) + 16)
     parts = [
-        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title">',
-        '<title id="title">Language</title>',
-        '<rect width="600" height="300" rx="20" fill="#111b2b"/>',
-        '<circle cx="146" cy="150" r="86" fill="none" stroke="#29384e" stroke-width="24"/>',
-        '<g font-family="system-ui, sans-serif" fill="#eaf1fa">',
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="360" height="{height}" '
+        f'viewBox="0 0 360 {height}" role="img" aria-labelledby="title">',
+        '<title id="title">Languages by Project</title>',
+        '<g font-family="system-ui, sans-serif" font-size="13">',
     ]
-    if total:
-        parts.append('<desc>' + escape("，".join(
-            f"{name} {size / total:.1%}" for name, size in entries
-        )) + '</desc>')
-        parts.append('<text x="146" y="156" text-anchor="middle" font-size="16">代码字节数</text>')
-        offset = 0
-        for index, (name, size) in enumerate(entries):
-            color = COLORS[index]
-            share = 100 * size / total
-            y = 150 + (index - (len(entries) - 1) / 2) * 32
-            label = name if len(name) <= 24 else name[:23] + "…"
+    if entries:
+        description = ", ".join(f"{name}: {count}" for name, count in entries)
+        parts.append(f'<desc>Project counts: {escape(description)}</desc>')
+        largest = entries[0][1]
+        for index, (name, count) in enumerate(entries):
+            y = 20 + index * 24
+            label = name if len(name) <= 18 else name[:17] + "…"
+            bar_width = 154 * count / largest
             parts.extend([
-                f'<circle cx="146" cy="150" r="86" fill="none" stroke="{color}" stroke-width="24" '
-                f'pathLength="100" stroke-dasharray="{share:.9f} 100" stroke-dashoffset="{-offset:.9f}" '
-                'transform="rotate(-90 146 150)"/>',
-                f'<circle cx="288" cy="{y:.0f}" r="5" fill="{color}"/>',
-                f'<text x="305" y="{y + 5:.0f}" font-size="16">{escape(label)}</text>',
-                f'<text x="558" y="{y + 5:.0f}" text-anchor="end" font-size="16">{share:.1f}%</text>',
+                f'<text x="10" y="{y + 5}" fill="#68788c">{escape(label)}</text>',
+                f'<rect x="166" y="{y - 4}" width="154" height="8" rx="4" fill="#8291a8" opacity=".19"/>',
+                f'<rect x="166" y="{y - 4}" width="{bar_width:.2f}" height="8" rx="4" fill="#668ad1"/>',
+                f'<text x="350" y="{y + 5}" text-anchor="end" fill="#68788c">{count}</text>',
             ])
-            offset += share
     else:
-        parts.append(f'<text x="280" y="156" font-size="18">{escape(empty_message)}</text>')
+        parts.append(f'<text x="10" y="32" fill="#68788c">{escape(empty_message)}</text>')
     parts.extend(["</g>", "</svg>"])
     return "\n".join(parts) + "\n"
 
@@ -94,13 +89,13 @@ def main():
     parser.add_argument("--placeholder", action="store_true")
     args = parser.parse_args()
     if args.placeholder:
-        chart = render({}, "Waiting")
+        chart = render({}, "Awaiting first update")
     else:
         token = os.environ.get("PROFILE_LANGUAGES_TOKEN")
         owner = os.environ.get("PROFILE_OWNER")
         if not token or not owner:
             parser.error("Set PROFILE_LANGUAGES_TOKEN and PROFILE_OWNER.")
-        chart = render(collect(token, owner), "暂无可统计的语言")
+        chart = render(collect(token, owner), "No language data")
     OUTPUT.write_text(chart, encoding="utf-8", newline="\n")
 
 

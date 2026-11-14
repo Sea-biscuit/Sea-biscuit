@@ -3,9 +3,9 @@
 
 
   `UMAMUSUME IS OUR LIFE!`
-## 代表项目语言分布
+## Languages by Project
 
-![代表项目语言分布环形图](assets/languages.svg)
+<img src="assets/languages.svg" alt="Number of projects using each language" width="360">
 
 
-Having a good day！
+Having a good day!
