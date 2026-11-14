@@ -1,8 +1,37 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" role="img" aria-labelledby="title">
-<title id="title">代表项目语言分布</title>
+<title id="title">Language</title>
 <rect width="600" height="300" rx="20" fill="#111b2b"/>
 <circle cx="146" cy="150" r="86" fill="none" stroke="#29384e" stroke-width="24"/>
 <g font-family="system-ui, sans-serif" fill="#eaf1fa">
-<text x="280" y="156" font-size="18">等待首次统计</text>
+<desc>C 55.3%，C# 36.9%，Python 2.4%，Go 2.4%，C++ 1.5%，Vue 0.7%，其他 0.8%</desc>
+<text x="146" y="156" text-anchor="middle" font-size="16">代码字节数</text>
+<circle cx="146" cy="150" r="86" fill="none" stroke="#55c4f3" stroke-width="24" pathLength="100" stroke-dasharray="55.273341645 100" stroke-dashoffset="0.000000000" transform="rotate(-90 146 150)"/>
+<circle cx="288" cy="54" r="5" fill="#55c4f3"/>
+<text x="305" y="59" font-size="16">C</text>
+<text x="558" y="59" text-anchor="end" font-size="16">55.3%</text>
+<circle cx="146" cy="150" r="86" fill="none" stroke="#b19cff" stroke-width="24" pathLength="100" stroke-dasharray="36.901306271 100" stroke-dashoffset="-55.273341645" transform="rotate(-90 146 150)"/>
+<circle cx="288" cy="86" r="5" fill="#b19cff"/>
+<text x="305" y="91" font-size="16">C#</text>
+<text x="558" y="91" text-anchor="end" font-size="16">36.9%</text>
+<circle cx="146" cy="150" r="86" fill="none" stroke="#57d8a5" stroke-width="24" pathLength="100" stroke-dasharray="2.439937731 100" stroke-dashoffset="-92.174647916" transform="rotate(-90 146 150)"/>
+<circle cx="288" cy="118" r="5" fill="#57d8a5"/>
+<text x="305" y="123" font-size="16">Python</text>
+<text x="558" y="123" text-anchor="end" font-size="16">2.4%</text>
+<circle cx="146" cy="150" r="86" fill="none" stroke="#ffc66d" stroke-width="24" pathLength="100" stroke-dasharray="2.369986066 100" stroke-dashoffset="-94.614585647" transform="rotate(-90 146 150)"/>
+<circle cx="288" cy="150" r="5" fill="#ffc66d"/>
+<text x="305" y="155" font-size="16">Go</text>
+<text x="558" y="155" text-anchor="end" font-size="16">2.4%</text>
+<circle cx="146" cy="150" r="86" fill="none" stroke="#fa92b9" stroke-width="24" pathLength="100" stroke-dasharray="1.467498187 100" stroke-dashoffset="-96.984571713" transform="rotate(-90 146 150)"/>
+<circle cx="288" cy="182" r="5" fill="#fa92b9"/>
+<text x="305" y="187" font-size="16">C++</text>
+<text x="558" y="187" text-anchor="end" font-size="16">1.5%</text>
+<circle cx="146" cy="150" r="86" fill="none" stroke="#a6bece" stroke-width="24" pathLength="100" stroke-dasharray="0.715984963 100" stroke-dashoffset="-98.452069901" transform="rotate(-90 146 150)"/>
+<circle cx="288" cy="214" r="5" fill="#a6bece"/>
+<text x="305" y="219" font-size="16">Vue</text>
+<text x="558" y="219" text-anchor="end" font-size="16">0.7%</text>
+<circle cx="146" cy="150" r="86" fill="none" stroke="#748aa5" stroke-width="24" pathLength="100" stroke-dasharray="0.831945136 100" stroke-dashoffset="-99.168054864" transform="rotate(-90 146 150)"/>
+<circle cx="288" cy="246" r="5" fill="#748aa5"/>
+<text x="305" y="251" font-size="16">其他</text>
+<text x="558" y="251" text-anchor="end" font-size="16">0.8%</text>
 </g>
 </svg>
